@@ -112,7 +112,7 @@ A production-ready full-stack platform for analyzing news credibility using heur
 
 ---
 
-## ⭐ Why This Project Stands Out
+## ⭐ Why My Project Stands Out
 
 - Solves real-world misinformation detection problem  
 - Full-stack + AI integration  

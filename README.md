@@ -4,6 +4,13 @@ A production-ready full-stack platform for analyzing news credibility using heur
 
 ---
 
+## 🌐 Live Demo
+
+- Frontend: https://truthlens-vcrb.vercel.app
+- Backend Docs: https://truthlens-api-y0ak.onrender.com/docs
+
+---
+
 ## 🚀 Tech Stack
 
 - Frontend: Next.js, TypeScript, Tailwind CSS
@@ -36,18 +43,38 @@ A production-ready full-stack platform for analyzing news credibility using heur
 
 ---
 
-## 🌐 Live Demo
+## 📸 Screenshots
 
-- Frontend: https://truthlens-vcrb.vercel.app
-- Backend Docs: https://truthlens-api-y0ak.onrender.com/docs
+### 🧾 Registration Page
+![Register UI](screenshots/register_ui.png)
+
+### 🔐 Login Page
+![Login UI](screenshots/login_ui.png)
+
+---
+### 🔍 Analyze Page
+
+![Analyze_Page](screenshots/analyze_page_ui.png)
+
+### 🧠 Analysis Results
+
+#### 🔍 Real News Analysis
+![Real Example](screenshots/real/analysis.png)
+
+#### ⚠️ Misleading Analysis
+![Misleading Example](screenshots/misleading/analysis.png)
+
+#### ❌ Fake News Analysis
+![Fake Example](screenshots/fake/analysis.png)
 
 ---
 
-## 📸 Screenshots
-### 📝 Registration Page
-![Register UI](screenshots/register_ui.png)
-### 📝 Login Page
-![Login UI](screenshots/login_ui.png)
+### 📊 Dashboard
+![Dashboard](screenshots/dashboard_ui.png)
+
+### ⚙️ Swagger Docs
+![SwaggerDocs](screenshots/swaggerdocs_backend.png)
+
 ---
 
 ## 👨‍💻 Author

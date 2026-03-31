@@ -1,0 +1,91 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# TruthLens — Full-Stack Docker Compose
+# Runs: PostgreSQL + FastAPI backend + Next.js frontend
+#
+# Quick start (full stack):
+#   cp .env.example .env       # fill in SECRET_KEY and OPENAI_API_KEY
+#   docker compose up --build
+#
+# Database only (for local backend dev):
+#   docker compose up db
+#
+# Environment variables:
+#   All are loaded from .env at the project root (see .env.example).
+# ─────────────────────────────────────────────────────────────────────────────
+
+version: "3.9"
+
+services:
+
+  # ── PostgreSQL ──────────────────────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    container_name: truthlens_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER:     ${POSTGRES_USER:-truthlens}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-truthlens_password}
+      POSTGRES_DB:       ${POSTGRES_DB:-truthlens_db}
+    ports:
+      - "5432:5432"          # expose for local dev tools (TablePlus, DBeaver)
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-truthlens} -d ${POSTGRES_DB:-truthlens_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # ── FastAPI Backend ─────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: truthlens_backend
+    restart: unless-stopped
+    environment:
+      # Use service name "db" — Docker resolves this to the container IP
+      DATABASE_URL:              postgresql://${POSTGRES_USER:-truthlens}:${POSTGRES_PASSWORD:-truthlens_password}@db:5432/${POSTGRES_DB:-truthlens_db}
+      SECRET_KEY:                ${SECRET_KEY:?SECRET_KEY must be set in .env}
+      ALGORITHM:                 HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 1440
+      OPENAI_API_KEY:            ${OPENAI_API_KEY:-}
+      OPENAI_MODEL:              ${OPENAI_MODEL:-gpt-4o-mini}
+      # Accept requests from the frontend container + any external origin you add
+      ALLOWED_ORIGINS:           ${ALLOWED_ORIGINS:-http://localhost:3000}
+      ENVIRONMENT:               ${ENVIRONMENT:-production}
+      WEB_CONCURRENCY:           ${WEB_CONCURRENCY:-2}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      start_period: 20s
+      retries: 3
+
+  # ── Next.js Frontend ────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # Baked into the Next.js bundle at build time.
+        # For local Docker: http://localhost:8000 (browser → host → backend port)
+        # For VPS/cloud:    https://api.yourdomain.com
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    container_name: truthlens_frontend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+    driver: local

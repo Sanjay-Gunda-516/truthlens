@@ -1,0 +1,40 @@
+# ── Environment files — NEVER commit these ────────────────────────────────────
+.env
+.env.local
+.env.production
+backend/.env
+frontend/.env.local
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+
+# ── Node / Next.js ────────────────────────────────────────────────────────────
+node_modules/
+frontend/.next/
+frontend/out/
+npm-debug.log*
+
+# ── Database ──────────────────────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ── Docker volumes ────────────────────────────────────────────────────────────
+postgres_data/
+
+# ── IDE / OS ──────────────────────────────────────────────────────────────────
+.DS_Store
+.idea/
+.vscode/
+Thumbs.db
+*.swp

@@ -1,4 +1,4 @@
-# TruthLens — AI-Powered News Credibility Analysis Platform
+# 🚀 TruthLens — AI-Powered News Credibility Analysis Platform
 
 A production-ready full-stack platform for analyzing news credibility using heuristic NLP signals and LLM-enhanced reasoning.
 
@@ -36,10 +36,26 @@ A production-ready full-stack platform for analyzing news credibility using heur
 
 ## 🏗 Architecture
 
-- Vercel-hosted Next.js frontend
-- Render-hosted FastAPI backend
-- Render PostgreSQL database
-- OpenAI-powered analysis layer
+- Vercel-hosted Next.js frontend  
+- Render-hosted FastAPI backend  
+- Render PostgreSQL database  
+- OpenAI-powered analysis layer  
+
+---
+
+## 📈 How It Works
+
+1. User submits a news article or claim  
+2. Backend analyzes:
+   - Sentiment
+   - Suspicious phrases
+   - Bias indicators  
+3. AI enhances reasoning using OpenAI  
+4. System generates:
+   - Credibility score
+   - Confidence score
+   - Explanation  
+5. Results are stored and shown in dashboard  
 
 ---
 
@@ -52,9 +68,11 @@ A production-ready full-stack platform for analyzing news credibility using heur
 ![Login UI](screenshots/login_ui.png)
 
 ---
-### 🔍 Analyze Page
 
+### 🔍 Analyze Page
 ![Analyze_Page](screenshots/analyze_page_ui.png)
+
+---
 
 ### 🧠 Analysis Results
 
@@ -74,6 +92,32 @@ A production-ready full-stack platform for analyzing news credibility using heur
 
 ### ⚙️ Swagger Docs
 ![SwaggerDocs](screenshots/swaggerdocs_backend.png)
+
+---
+
+## 🔐 Security
+
+- Password hashing (bcrypt)  
+- JWT-based authentication  
+- Protected API endpoints  
+- Secure environment variable handling  
+
+---
+
+## 🚀 Deployment
+
+- Frontend deployed on Vercel  
+- Backend deployed on Render  
+- PostgreSQL hosted on Render  
+
+---
+
+## ⭐ Why This Project Stands Out
+
+- Solves real-world misinformation detection problem  
+- Full-stack + AI integration  
+- Production deployment (not just local project)  
+- Clean UI + scalable backend design  
 
 ---
 

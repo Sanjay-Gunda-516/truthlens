@@ -44,8 +44,8 @@ A production-ready full-stack platform for analyzing news credibility using heur
 ---
 
 ## 📸 Screenshots
-
-(Add screenshots here later)
+### 📝 Registration Page
+![Register UI](screenshots/register_ui.png)
 
 ---
 

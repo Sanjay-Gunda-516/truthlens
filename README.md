@@ -16,7 +16,7 @@ A production-ready full-stack platform for analyzing news credibility using heur
 
 ---
 
-## 🌐 Live Demo
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge&logo=vercel)](https://truthlens-vcrb.vercel.app)
 
 - Frontend: https://truthlens-vcrb.vercel.app
 - Backend Docs: https://truthlens-api-y0ak.onrender.com/docs

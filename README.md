@@ -4,6 +4,18 @@ A production-ready full-stack platform for analyzing news credibility using heur
 
 ---
 
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688)
+![Next.js](https://img.shields.io/badge/Next.js-Frontend-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED)
+![JWT](https://img.shields.io/badge/Auth-JWT-orange)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT--powered-412991)
+![Deployment](https://img.shields.io/badge/Deployed-Vercel%20%7C%20Render-brightgreen)
+
+---
+
 ## 🌐 Live Demo
 
 - Frontend: https://truthlens-vcrb.vercel.app
